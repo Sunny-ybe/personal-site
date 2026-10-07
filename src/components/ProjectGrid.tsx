@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Carousel } from "@/components/Carousel";
 import { ScreenshotProject } from "@/content/site-data";
 
 export function ProjectGrid({ projects }: { projects: ScreenshotProject[] }) {
@@ -18,12 +18,11 @@ function ProjectTile({ project }: { project: ScreenshotProject }) {
         className="relative aspect-[16/10] mb-4 border overflow-hidden flex items-center justify-center"
         style={{ borderColor: "var(--line-strong)", background: "var(--ink-raised)" }}
       >
-        {project.image ? (
-          <Image
-            src={project.image}
+        {project.images && project.images.length > 0 ? (
+          <Carousel
+            images={project.images}
             alt={`${project.title} screenshot`}
-            fill
-            className="object-cover"
+            sizes="(min-width: 640px) 24rem, 100vw"
           />
         ) : (
           <span className="font-display text-sm" style={{ color: "var(--paper-faint)" }}>
@@ -59,6 +58,8 @@ function ProjectTile({ project }: { project: ScreenshotProject }) {
             <a
               key={l.href}
               href={l.href}
+              target="_blank"
+              rel="noopener noreferrer"
               className="font-mono text-xs pb-0.5 border-b"
               style={{ borderColor: "var(--line-strong)", color: "var(--paper)" }}
             >

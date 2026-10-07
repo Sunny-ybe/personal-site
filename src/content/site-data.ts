@@ -27,9 +27,10 @@ export type ScreenshotProject = {
   title: string;
   period: string;
   description: string;
-  /** Path under /public, e.g. "/screenshots/consnow-1.png". Leave
-   *  empty to show a placeholder tile until you add a real image. */
-  image?: string;
+  /** Paths under /public, e.g. ["/screenshots/consnow-1.png"]. Leave
+   *  empty to show a placeholder tile; list more than one to get a
+   *  carousel. */
+  images?: string[];
   stack?: string[];
   links?: Link[];
 };
@@ -43,14 +44,17 @@ export const person = {
   name: "Sashikant Kumar",
   shortName: "Sunny",
   tagline:
-    "Math & CS @ ASU Fulton. I build data systems, ship small products end to end, and write up what I learn.",
+    "Math & CS Undergrad @ ASU. I build data systems, ship small products end to end, and write up what I learn.",
   location: "Tempe, AZ",
+  /** Paths under /public, e.g. ["/me.jpg"]. Leave empty to show a
+   *  placeholder; list more than one to get a carousel. */
+  photos: ["/me.webp"],
   // Fill these in with the addresses you actually want public.
-  email: "you@example.com",
+  email: "sashikant877@gmail.com",
   resumeHref: "/resume.pdf",
   socials: [
-    { label: "GitHub", href: "https://github.com/sunny_ybe" },
-    { label: "LinkedIn", href: "https://linkedin.com/in/your-handle" },
+    { label: "GitHub", href: "https://github.com/sunny-ybe" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/sashikant-kumar-2004951b4/" },
   ] satisfies Link[],
 };
 
@@ -61,7 +65,7 @@ export const sweWork: Entry[] = [
   {
     code: "SWE 02",
     title: "Software Developer",
-    org: "SSE Data Workgroup — ASU Fulton Schools of Engineering",
+    org: "ASU Fulton Schools of Engineering",
     period: "Apr 2026 — Present",
     summary:
       // TODO: swap in the real one- or two-sentence description of what
@@ -119,21 +123,22 @@ export const research: Entry[] = [
 ----------------------------------------------------------------- */
 export const vibeProjects: ScreenshotProject[] = [
   {
-    title: "ConSnow",
+    title: "Consnow",
     period: "2026",
     description:
       "Consent-native, passive ambient social app — shipped to real users on TestFlight across the US and India.",
     stack: ["Kotlin", "Jetpack Compose", "NestJS"],
+    images: ["/screenshots/consnow1.webp","/screenshots/consnow2.webp","/screenshots/consnow3.webp","/screenshots/consnow4.webp"],
     links: [],
   },
-  {
-    title: "Udhaar Khata",
-    period: "2026",
-    description:
-      "Android app that digitizes a kirana shopkeeper's credit ledger, built for a friend's actual store.",
-    stack: ["Android", "Kotlin"],
-    links: [],
-  },
+  // {
+  //   title: "Udhaar Khata",
+  //   period: "2026",
+  //   description:
+  //     "Android app that digitizes a kirana shopkeeper's credit ledger, built for a friend's actual store.",
+  //   stack: ["Android", "Kotlin"],
+  //   links: [],
+  // },
   {
     title: "Ember",
     period: "2025",
@@ -150,7 +155,7 @@ export const vibeProjects: ScreenshotProject[] = [
     links: [],
   },
   // Add more as you ship them. Drop a screenshot in /public/screenshots
-  // and reference it as `image: "/screenshots/your-file.png"`.
+  // and reference it as `images: ["/screenshots/your-file.png"]`.
 ];
 
 /* ---------------------------------------------------------------

@@ -17,18 +17,18 @@ export function Footer() {
         >
           {person.email}
         </a>
-        <a href={person.resumeHref} className="font-mono text-sm" style={{ color: "var(--paper-dim)" }}>
+        <a href={person.resumeHref} target="_blank" rel="noopener noreferrer" className="font-mono text-sm" style={{ color: "var(--paper-dim)" }}>
           Resume
         </a>
         {person.socials.map((s) => (
-          <a key={s.label} href={s.href} className="font-mono text-sm" style={{ color: "var(--paper-dim)" }}>
+          <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="font-mono text-sm" style={{ color: "var(--paper-dim)" }}>
             {s.label}
           </a>
         ))}
       </div>
 
       <p className="font-mono text-xs" style={{ color: "var(--paper-faint)" }}>
-        © {new Date().getFullYear()} {person.name}
+        © 2026 {person.name}
       </p>
     </section>
   );

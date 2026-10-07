@@ -39,6 +39,8 @@ export function EntryRow({ entry }: { entry: Entry }) {
               <a
                 key={l.href}
                 href={l.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="font-mono text-xs pb-0.5 border-b"
                 style={{ borderColor: "var(--line-strong)", color: "var(--paper)" }}
               >

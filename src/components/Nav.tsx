@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 const SECTIONS = [
-  { id: "work", label: "Software engineering" },
+  { id: "work", label: "Experience" },
   { id: "data", label: "Data work" },
   { id: "research", label: "Research" },
   { id: "projects", label: "Shipped & vibe-coded" },

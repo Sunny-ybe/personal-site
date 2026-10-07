@@ -1,23 +1,24 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------
-   Tokens — "field ledger": ink-charcoal ground, brass marginalia.
-   Edit these to retheme the whole site.
+   Tokens — "night sky": pure black ground, white type, no colour.
+   Edit these to retheme the whole site. (The accent tokens keep
+   their original "brass" names so components need no changes.)
 ----------------------------------------------------------------- */
 :root {
-  --ink: #0e1116;
-  --ink-raised: #151a21;
-  --ink-raised-2: #1b222b;
-  --line: #262e38;
-  --line-strong: #37424f;
+  --ink: #000000;
+  --ink-raised: #0a0a0a;
+  --ink-raised-2: #141414;
+  --line: #262626;
+  --line-strong: #404040;
 
-  --paper: #eae6dc;
-  --paper-dim: #9aa3af;
-  --paper-faint: #5c6672;
+  --paper: #ffffff;
+  --paper-dim: rgba(255, 255, 255, 0.78);
+  --paper-faint: rgba(255, 255, 255, 0.55);
 
-  --brass: #c98a3e;
-  --brass-light: #e3a857;
-  --brass-wash: rgba(201, 138, 62, 0.12);
+  --brass: #ffffff;
+  --brass-light: #ffffff;
+  --brass-wash: rgba(255, 255, 255, 0.22);
 
   --font-display: var(--font-display);
   --font-body: var(--font-body);
@@ -46,14 +47,22 @@
 
 html {
   color-scheme: dark;
+  font-size: 112.5%;
 }
 
 body {
   background: var(--ink);
   color: var(--paper);
   font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 500;
   line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
 }
 
 ::selection {
@@ -123,4 +132,76 @@ a {
 
 .rule-strong {
   border-top: 1px solid var(--line-strong);
+}
+
+/* Text sits on solid black so the starfield never shows through it.
+   Blocks shrink to their text; the shadow adds breathing room without
+   shifting layout. */
+:is(h1, h2, h3, p, a, span) {
+  background: var(--ink);
+  box-shadow: 0 0 0 0.35rem var(--ink);
+}
+
+:is(h1, h2, h3, p) {
+  width: fit-content;
+}
+
+/* Any link that opens a new tab says so on hover / keyboard focus. */
+a[target="_blank"] {
+  position: relative;
+}
+
+a[target="_blank"]:is(:hover, :focus-visible)::after {
+  content: "Opens in new tab ↗";
+  position: absolute;
+  top: calc(100% + 0.6rem);
+  left: 0;
+  z-index: 20;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 3px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Carousel controls, shown only when a frame has more than one image. */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.8rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.carousel-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border: 1px solid var(--paper);
+  border-radius: 999px;
+  background: var(--ink);
+  cursor: pointer;
+}
+
+.carousel-dot[aria-current="true"] {
+  background: var(--paper);
+}
+
+.carousel-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  padding: 2.5rem;
+  background: rgba(0, 0, 0, 0.92);
 }
