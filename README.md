@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio
 
-## Getting Started
+Next.js + TypeScript + Tailwind. One editable data file drives the whole
+site — the layout and components never need to change when you add work.
 
-First, run the development server:
+## Run it locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Add or edit content
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Everything you see on the page — every job, project, research entry, field
+note, your email and socials — lives in one file:
 
-## Learn More
+```
+src/content/site-data.ts
+```
 
-To learn more about Next.js, take a look at the following resources:
+To add a new entry, copy an existing object in the relevant array and fill
+it in. Nothing else needs to change — the page re-renders from the array.
+Search that file for `TODO` to find every placeholder that still needs your
+real content (descriptions, stack, dates, the resume PDF, your real email
+and social links).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Screenshots** for the "Shipped & vibe-coded" section go in
+  `public/screenshots/`. Reference them from `site-data.ts` as
+  `image: "/screenshots/your-file.png"`. Leave `image` unset and the tile
+  shows a placeholder.
+- **Research PDF** goes in `public/research/`, referenced the same way.
+- **Resume** — drop a `resume.pdf` into `public/` (it's already linked from
+  the header and footer).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Design system
 
-## Deploy on Vercel
+Colors, type and spacing tokens are defined once in
+`src/app/globals.css` under `:root` — change a value there and it updates
+everywhere. Fonts (Space Grotesk / Inter / JetBrains Mono) are set in
+`src/app/layout.tsx`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy to your own domain
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The fastest path, since the domain is already bought:
+
+1. Push this repo to GitHub.
+2. Go to [vercel.com/new](https://vercel.com/new), import the repo. No
+   config needed — Vercel detects Next.js automatically.
+3. Once it's deployed, go to the project's **Settings → Domains** in
+   Vercel and add your domain. Vercel gives you the DNS records to add
+   (usually an A record or CNAME) at whatever registrar you bought it
+   from — add those and it propagates within a few minutes to a few
+   hours.
+4. Every push to `main` auto-redeploys. For a new section or project:
+   edit `site-data.ts`, commit, push — live in about a minute, no need to
+   touch Vercel again.
+
+## Note on fonts in this build environment
+
+`next/font/google` fetches Inter / Space Grotesk / JetBrains Mono from
+Google Fonts at build time. The sandbox this was built in has no network
+access to `fonts.googleapis.com`, so `npm run build` couldn't complete
+there — confirmed with a clean `tsc --noEmit` and `eslint` pass instead.
+This isn't a code issue: it'll fetch normally the moment you run
+`npm run dev` or `npm run build` with real internet (your machine, or
+Vercel's build servers), both of which have it.

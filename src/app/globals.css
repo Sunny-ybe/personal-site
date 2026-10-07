@@ -1,26 +1,126 @@
 @import "tailwindcss";
 
+/* ---------------------------------------------------------------
+   Tokens — "field ledger": ink-charcoal ground, brass marginalia.
+   Edit these to retheme the whole site.
+----------------------------------------------------------------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ink: #0e1116;
+  --ink-raised: #151a21;
+  --ink-raised-2: #1b222b;
+  --line: #262e38;
+  --line-strong: #37424f;
+
+  --paper: #eae6dc;
+  --paper-dim: #9aa3af;
+  --paper-faint: #5c6672;
+
+  --brass: #c98a3e;
+  --brass-light: #e3a857;
+  --brass-wash: rgba(201, 138, 62, 0.12);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ink: var(--ink);
+  --color-ink-raised: var(--ink-raised);
+  --color-ink-raised-2: var(--ink-raised-2);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-paper: var(--paper);
+  --color-paper-dim: var(--paper-dim);
+  --color-paper-faint: var(--paper-faint);
+  --color-brass: var(--brass);
+  --color-brass-light: var(--brass-light);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: var(--line);
+}
+
+html {
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+::selection {
+  background: var(--brass-wash);
+  color: var(--brass-light);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Visible keyboard focus everywhere, no exceptions. */
+:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Shared primitives
+----------------------------------------------------------------- */
+
+.font-display {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-mono {
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+/* An entry's reference code, e.g. "SWE 01" — functions as a catalog
+   index, not decoration. */
+.entry-code {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  color: var(--brass);
+  white-space: nowrap;
+}
+
+/* A small data chip for stack/role/date — functional labelling. */
+.chip {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.01em;
+  color: var(--paper-dim);
+  border: 1px solid var(--line-strong);
+  border-radius: 3px;
+  padding: 0.15rem 0.5rem;
+  white-space: nowrap;
+}
+
+.rule {
+  border-top: 1px solid var(--line);
+}
+
+.rule-strong {
+  border-top: 1px solid var(--line-strong);
 }
