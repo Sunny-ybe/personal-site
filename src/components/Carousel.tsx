@@ -11,11 +11,14 @@ export function Carousel({
   alt,
   sizes,
   eager,
+  fit = "cover",
 }: {
   images: string[];
   alt: string;
   sizes: string;
   eager?: boolean;
+  /** "cover" crops to fill the frame; "contain" shows the whole image. */
+  fit?: "cover" | "contain";
 }) {
   const [index, setIndex] = useState(0);
   const [open, setOpen] = useState(false);
@@ -78,7 +81,7 @@ export function Carousel({
           fill
           sizes={sizes}
           loading={eager ? "eager" : undefined}
-          className="object-cover"
+          className={fit === "contain" ? "object-contain" : "object-cover"}
         />
       </button>
       {many && controls}
