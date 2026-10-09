@@ -34,7 +34,7 @@ function ExperienceCard({ entry }: { entry: Experience }) {
         <div className="grid gap-px md:grid-cols-2 mb-6">
           {entry.caseStudies.map((c) => (
             <div key={c.title} className="p-5" style={{ outline: "1px solid var(--line)" }}>
-              <h4 className="font-display text-base leading-snug mb-3">{c.title}</h4>
+              <h4 className="font-display font-semibold text-base leading-snug mb-3">{c.title}</h4>
               <ul className="points text-[0.94rem]">
                 {c.points.map((p) => (
                   <li key={p}>{p}</li>
