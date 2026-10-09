@@ -3,7 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 
 // Stars are laid out once on a fixed virtual field (seeded, so the sky is
-// identical on every load) and the viewport shows a window onto it.
+// identical on every load) and the viewport shows a window onto it,
+// repeating the field if the viewport is larger.
 const FIELD_W = 2560;
 const FIELD_H = 1600;
 const DUST_COUNT = 10350;
@@ -37,6 +38,20 @@ function draw(canvas: HTMLCanvasElement) {
   ctx.fillRect(0, 0, w, h);
   ctx.globalCompositeOperation = "lighter";
 
+  // Repeat the field as many times as it takes to cover the viewport
+  // (it can exceed one field on huge screens or when zoomed out).
+  for (let oy = 0; oy < h; oy += FIELD_H) {
+    for (let ox = 0; ox < w; ox += FIELD_W) {
+      ctx.save();
+      ctx.translate(ox, oy);
+      drawField(ctx, w - ox, h - oy);
+      ctx.restore();
+    }
+  }
+}
+
+/** Draws one copy of the field at the origin, skipping anything beyond w × h. */
+function drawField(ctx: CanvasRenderingContext2D, w: number, h: number) {
   const rand = mulberry32(11);
   const tint = () => {
     const t = rand();

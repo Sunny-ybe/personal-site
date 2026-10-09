@@ -127,7 +127,7 @@ export const vibeProjects: ScreenshotProject[] = [
     period: "2026",
     description:
       "Consent-native, passive ambient social app — shipped to real users on TestFlight across the US and India.",
-    stack: ["Kotlin", "Jetpack Compose", "NestJS"],
+    stack: ["React Native", "Jetpack Compose", "NestJS"],
     images: ["/screenshots/consnow1.webp","/screenshots/consnow2.webp","/screenshots/consnow3.webp","/screenshots/consnow4.webp"],
     links: [],
   },
@@ -153,6 +153,7 @@ export const vibeProjects: ScreenshotProject[] = [
       "Query someone's work instead of browsing their résumé: upload artifacts, get grounded answers with citations back to the source.",
     stack: ["RAG"],
     links: [],
+    images:["/portfoliobot.webp"]
   },
   // Add more as you ship them. Drop a screenshot in /public/screenshots
   // and reference it as `images: ["/screenshots/your-file.png"]`.
