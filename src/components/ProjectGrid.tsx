@@ -3,7 +3,7 @@ import { ScreenshotProject } from "@/content/site-data";
 
 export function ProjectGrid({ projects }: { projects: ScreenshotProject[] }) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-px" style={{ background: "var(--line)" }}>
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-px">
       {projects.map((p) => (
         <ProjectTile key={p.title} project={p} />
       ))}
@@ -13,7 +13,7 @@ export function ProjectGrid({ projects }: { projects: ScreenshotProject[] }) {
 
 function ProjectTile({ project }: { project: ScreenshotProject }) {
   return (
-    <div className="p-6" style={{ background: "var(--ink)" }}>
+    <div className="p-6" style={{ background: "var(--ink)", outline: "1px solid var(--line)" }}>
       <div
         className="relative aspect-[16/10] mb-4 border overflow-hidden flex items-center justify-center"
         style={{ borderColor: "var(--line-strong)", background: "var(--ink-raised)" }}
