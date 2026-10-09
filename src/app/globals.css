@@ -48,6 +48,7 @@
 html {
   color-scheme: dark;
   font-size: 112.5%;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -204,4 +205,165 @@ a[target="_blank"]:is(:hover, :focus-visible)::after {
   z-index: 50;
   padding: 2.5rem;
   background: rgba(0, 0, 0, 0.92);
+}
+
+/* ---------------------------------------------------------------
+   Layout
+----------------------------------------------------------------- */
+
+/* A soft veil behind the content column: dims the stars under the
+   reading area and fades out at the edges so the margins keep the full
+   sky. */
+.content {
+  position: relative;
+  z-index: 0;
+}
+
+.content::before {
+  content: "";
+  position: absolute;
+  inset: 0 -3rem;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 0, 0, 0.6) 3rem,
+    rgba(0, 0, 0, 0.6) calc(100% - 3rem),
+    transparent
+  );
+  pointer-events: none;
+}
+
+/* ---------------------------------------------------------------
+   Cards, buttons, links, status
+----------------------------------------------------------------- */
+
+.card {
+  border: 1px solid var(--line);
+  background: var(--ink);
+  transition: border-color 0.2s;
+}
+
+.card:hover,
+.card:focus-within {
+  border-color: var(--line-strong);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.95rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  background: var(--ink);
+  box-shadow: none;
+  color: var(--paper);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    border-color 0.15s,
+    background-color 0.15s;
+}
+
+.btn:hover {
+  border-color: var(--paper);
+}
+
+.btn-primary {
+  border-color: var(--paper);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.btn-primary:hover {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+/* Inline text link with a quiet underline that brightens on hover. */
+.link {
+  padding-bottom: 1px;
+  border-bottom: 1px solid var(--line-strong);
+  transition: border-color 0.15s;
+}
+
+.link:hover {
+  border-color: var(--paper);
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.1rem 0.5rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--ink);
+  box-shadow: none;
+  color: var(--paper);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* "Shipped" means real users, so it is the only filled badge. */
+.status[data-status="Shipped"] {
+  border-color: var(--paper);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* Small uppercase label above a group, e.g. "STACK" or "ARCHITECTURE". */
+.eyebrow {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--paper-faint);
+}
+
+/* Bulleted list with a thin dash marker. */
+.points {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.points > li {
+  position: relative;
+  padding-left: 1.1rem;
+  color: var(--paper-dim);
+  line-height: 1.55;
+}
+
+.points > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.75em;
+  width: 0.5rem;
+  height: 1px;
+  background: var(--paper-faint);
+}
+
+/* Expandable "Technical Details" on a project card. */
+.details > summary {
+  list-style: none;
+  width: fit-content;
+}
+
+.details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.details > summary::after {
+  content: "+";
+}
+
+.details[open] > summary::after {
+  content: "−";
 }

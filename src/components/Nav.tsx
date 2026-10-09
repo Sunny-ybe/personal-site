@@ -2,18 +2,10 @@
 
 import { useEffect, useState } from "react";
 
-const SECTIONS = [
-  { id: "work", label: "Experience" },
-  { id: "data", label: "Data work" },
-  { id: "research", label: "Research" },
-  { id: "projects", label: "Shipped & vibe-coded" },
-  { id: "community", label: "Community & ventures" },
-  { id: "notes", label: "Field notes" },
-  { id: "contact", label: "Contact" },
-];
+export type NavSection = { id: string; label: string };
 
-export function Nav() {
-  const [active, setActive] = useState<string>(SECTIONS[0].id);
+export function Nav({ sections }: { sections: NavSection[] }) {
+  const [active, setActive] = useState<string>(sections[0].id);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -27,13 +19,13 @@ export function Nav() {
       { rootMargin: "-20% 0px -70% 0px" }
     );
 
-    for (const section of SECTIONS) {
+    for (const section of sections) {
       const el = document.getElementById(section.id);
       if (el) observer.observe(el);
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, [sections]);
 
   return (
     <>
@@ -42,7 +34,7 @@ export function Nav() {
         aria-label="Section index"
         className="hidden lg:flex flex-col gap-1 sticky top-16 self-start py-1"
       >
-        {SECTIONS.map((s) => (
+        {sections.map((s) => (
           <a
             key={s.id}
             href={`#${s.id}`}
@@ -67,7 +59,7 @@ export function Nav() {
         className="lg:hidden flex gap-5 overflow-x-auto py-3 font-mono text-[13px] border-b"
         style={{ borderColor: "var(--line)" }}
       >
-        {SECTIONS.map((s) => (
+        {sections.map((s) => (
           <a
             key={s.id}
             href={`#${s.id}`}
