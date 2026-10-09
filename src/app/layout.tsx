@@ -21,10 +21,27 @@ const mono = JetBrains_Mono({
   weight: ["400", "500"],
 });
 
+const title = "Sashikant Kumar | Computer Science & Mathematics @ ASU";
+const description =
+  "Sashikant Kumar builds AI products, developer tools, and automation systems. Computer Science & Mathematics at Arizona State University, open to Summer 2027 software engineering and AI internships.";
+
 export const metadata: Metadata = {
-  title: "Sashikant Kumar — Portfolio",
-  description:
-    "Software engineering, data work, and research by Sashikant Kumar — ASU Fulton, Math & CS.",
+  title,
+  description,
+  authors: [{ name: "Sashikant Kumar" }],
+  openGraph: {
+    type: "website",
+    title,
+    description,
+    siteName: "Sashikant Kumar",
+    images: [{ url: "/me.webp", width: 800, height: 800, alt: "Sashikant Kumar" }],
+  },
+  twitter: {
+    card: "summary",
+    title,
+    description,
+    images: ["/me.webp"],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -114,10 +114,18 @@ export function Starfield() {
   useEffect(() => {
     const canvas = ref.current;
     if (!canvas) return;
-    const redraw = () => draw(canvas);
-    redraw();
-    window.addEventListener("resize", redraw);
-    return () => window.removeEventListener("resize", redraw);
+    draw(canvas);
+    // Redraw at most once per frame while the window is being resized.
+    let frame = 0;
+    const onResize = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => draw(canvas));
+    };
+    window.addEventListener("resize", onResize);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("resize", onResize);
+    };
   }, []);
 
   return (

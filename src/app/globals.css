@@ -222,13 +222,14 @@ a[target="_blank"]:is(:hover, :focus-visible)::after {
 .content::before {
   content: "";
   position: absolute;
-  inset: 0 -3rem;
+  /* Stays inside the page gutter so it never causes sideways scroll. */
+  inset: 0 -1.25rem;
   z-index: -1;
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(0, 0, 0, 0.6) 3rem,
-    rgba(0, 0, 0, 0.6) calc(100% - 3rem),
+    rgba(0, 0, 0, 0.6) 1.25rem,
+    rgba(0, 0, 0, 0.6) calc(100% - 1.25rem),
     transparent
   );
   pointer-events: none;

@@ -159,7 +159,7 @@ function TechnicalDetails({
             <ul className="flex flex-col gap-2">
               {links.map((l) => (
                 <li key={l.href}>
-                  <a href={l.href} target="_blank" rel="noopener noreferrer" className="link">
+                  <a href={l.href} target="_blank" rel="noopener noreferrer" className="link [overflow-wrap:anywhere]">
                     {l.label}: {l.href.replace(/^https:\/\/(www\.)?/, "")}
                   </a>
                 </li>
@@ -174,7 +174,7 @@ function TechnicalDetails({
 
 function DetailBlock({ title, wide, children }: { title: string; wide?: boolean; children: React.ReactNode }) {
   return (
-    <div className={wide ? "md:col-span-2" : undefined}>
+    <div className={wide ? "min-w-0 md:col-span-2" : "min-w-0"}>
       <h4 className="eyebrow mb-2.5">{title}</h4>
       {children}
     </div>
