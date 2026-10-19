@@ -44,11 +44,8 @@ export function Hero() {
         </ul>
 
         <div className="flex flex-wrap items-center gap-2.5">
-          <a href="#featured" className="btn btn-primary">
-            Explore Projects
-          </a>
           {person.resumeHref && (
-            <a href={person.resumeHref} target="_blank" rel="noopener noreferrer" className="btn">
+            <a href={person.resumeHref} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
               View Resume
             </a>
           )}

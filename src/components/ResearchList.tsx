@@ -6,7 +6,12 @@ export function ResearchList({ entries }: { entries: ResearchEntry[] }) {
     <div className="flex flex-col gap-6">
       {entries.map((r) => (
         <article key={r.title} className="card p-6 sm:p-8">
-          <h3 className="font-display text-xl leading-snug mb-5">{r.title}</h3>
+          <h3 className={`font-display text-xl leading-snug ${r.context ? "mb-1" : "mb-5"}`}>{r.title}</h3>
+          {r.context && (
+            <p className="text-sm mb-5" style={{ color: "var(--paper-dim)" }}>
+              {r.context}
+            </p>
+          )}
 
           <dl className="grid gap-x-6 gap-y-4 sm:grid-cols-[7rem_minmax(0,1fr)] mb-6">
             {[

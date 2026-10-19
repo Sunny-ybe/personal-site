@@ -20,7 +20,7 @@ export default function Home() {
   // A section only renders, and only gets a nav entry, when it has
   // something published.
   const sections: NavSection[] = [
-    featured.length > 0 && { id: "featured", label: "Featured Work" },
+    featured.length > 0 && { id: "featured", label: "Projects" },
     roles.length > 0 && { id: "experience", label: "Experience" },
     papers.length > 0 && { id: "research", label: "Research & Analysis" },
     more.length > 0 && { id: "more", label: "More Projects" },
@@ -44,7 +44,7 @@ export default function Home() {
           <Hero />
 
           {featured.length > 0 && (
-            <Section id="featured" title="Featured Work" intro="Selected software I've built and shipped.">
+            <Section id="featured" title="Projects" intro="Selected software I've built and shipped.">
               <FeaturedProjects projects={featured} />
             </Section>
           )}

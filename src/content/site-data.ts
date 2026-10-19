@@ -38,7 +38,7 @@ export const person = {
   email: "sashikant877@gmail.com",
   /** Path under /public, e.g. "/resume.pdf". Leave empty to hide every
    *  resume link until the PDF is in /public. */
-  resumeHref: "",
+  resumeHref: "/SashikantKumar_SWE.pdf",
   socials: [
     { label: "GitHub", href: "https://github.com/Sunny-ybe" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/sashikant-kumar-2004951b4/" },
@@ -205,7 +205,7 @@ export const experience: Experience[] = [
       "I design and build workflow and automation systems for project operations and administrative processes at ASU's Fulton Schools of Engineering.",
     caseStudies: [
       {
-        title: "SSE Project Tracking System",
+        title: "Project Tracking System",
         points: [
           "A three-tool project intake and tracking workflow: Microsoft Forms, SharePoint, and Power Automate.",
           "Built for the SSE Data Workgroup.",
@@ -213,7 +213,7 @@ export const experience: Experience[] = [
         ],
       },
       {
-        title: "EPICS Purchase & Reimbursement Workflow",
+        title: "Purchase & Reimbursement Workflow",
         points: [
           "Airtable pipeline with 2 public intake forms, 5 relational tables, and 11 status values.",
           "Routing across 3 campus coordinators.",
@@ -243,6 +243,8 @@ export const experience: Experience[] = [
 ----------------------------------------------------------------- */
 export type ResearchEntry = {
   title: string;
+  /** One line of context under the title: role, lab, date. */
+  context?: string;
   question: string;
   method: string;
   findings: string;
@@ -255,8 +257,20 @@ export type ResearchEntry = {
 };
 
 export const research: ResearchEntry[] = [
-  // Add an entry once there is a real paper or analysis to show. Drop
-  // the PDF in /public/research and set `published: true`.
+  {
+    title: "Multimodal Deep Learning for Lung Cancer Prognosis",
+    context: "Undergraduate research contribution · CASI, Arizona State University · Summer 2025",
+    question:
+      "Which cancer type offers the clearest scientific and clinical case for a multimodal deep learning approach, one that combines what a tumor looks like with what its DNA says?",
+    method:
+      "Literature review of recent multimodal oncology studies, as the only undergraduate on a team of PhD and Master's researchers supervised by Dr. George Poste. The team's proposed framework integrates digital pathology slides of tumor tissue with whole-genome sequencing data from liquid biopsy.",
+    findings:
+      "The team concluded that lung adenocarcinoma (LUAD) was the optimal focus, given the strength of available data and the unmet clinical need. The analysis informed a formal research proposal supporting an institutional partnership between ASU and a publicly traded clinical genomics company, which is in the pipeline.",
+    pdf: "/research/Multimodal-Deep-Learning-for-Lung-Cancer-Prognosis.pdf",
+    published: true,
+  },
+  // To add another: drop the PDF in /public/research, copy the entry
+  // above, and set `published: true`.
 ];
 
 /* ---------------------------------------------------------------
@@ -270,16 +284,34 @@ export type MoreProject = {
   stack?: string[];
   /** Paths under /public. More than one becomes a carousel. */
   images?: string[];
+  /** A YouTube video, with a short label shown above it that says what
+   *  the video is (e.g. a concept demo, not a shipped product). */
+  video?: { youtubeId: string; label: string };
+  /** Spans the full row, with media beside the text. */
+  wide?: boolean;
   links?: Link[];
   published: boolean;
 };
 
 export const moreProjects: MoreProject[] = [
   {
-    name: "Ember",
-    tagline: "Grief Companion App",
+    name: "Crash Test Buddy",
+    tagline: "AI Toy Safety Rating Concept",
     status: "Prototype",
-    description: "Won 1st place at ASU's Principled Innovation Academy.",
+    description:
+      "An idea and proof of concept from Hacks for Humanity 2026, the social-good hackathon run by ASU Project Humanities. AI toys talk to children, but toy safety rules only check physical hazards, never what a toy says. The concept is a crash-test rating for them: hundreds of adversarial test conversations grade each toy before it reaches a shop, a safety layer rewrites unsafe answers before a child hears them, and parents scan a QR code on the box to see the live grade. Built with Team Hand in Hand; won 1st place overall and $2,500.",
+    stack: ["AI Safety", "ElevenLabs", "LLM Judge", "Cloudflare Pages", "Product Design"],
+    video: { youtubeId: "u5Y2875ua2A", label: "Hackathon proof of concept · Hacks for Humanity 2026" },
+    wide: true,
+    published: true,
+  },
+  {
+    name: "Ember",
+    tagline: "Grief Companion Concept",
+    status: "Prototype",
+    description:
+      "A grief-companion concept I scoped and led a team to design and prototype. Won 1st place at ASU's Principled Innovation Academy.",
+    links: [{ label: "Interactive Concept Demo", href: "https://ember-smartwatch-mobile.netlify.app/" }],
     published: true,
   },
   {
@@ -288,7 +320,6 @@ export const moreProjects: MoreProject[] = [
     description:
       "Ask questions about someone's work and get answers grounded in their real projects, with citations.",
     stack: ["RAG"],
-    images: ["/portfoliobot.webp"],
     published: true,
   },
   {
