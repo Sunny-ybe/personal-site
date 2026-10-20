@@ -28,6 +28,7 @@ export const person = {
   location: "Tempe, Arizona",
   /** Small proof line under the description. */
   proof: [
+    "1st place overall, ASU Hacks for Humanity 2026",
     "1st place, ASU Principled Innovation Academy",
     "2 production workflow systems at ASU",
     "Shipped to 15 users across the US and India",
