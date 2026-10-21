@@ -304,6 +304,7 @@ export const moreProjects: MoreProject[] = [
     stack: ["AI Safety", "ElevenLabs", "LLM Judge", "Cloudflare Pages", "Product Design"],
     video: { youtubeId: "u5Y2875ua2A", label: "Hackathon proof of concept · Hacks for Humanity 2026" },
     wide: true,
+    links: [{ label: "Interactive Concept Demo", href: "https://crash-test-buddy.pages.dev/" }],
     published: true,
   },
   {
