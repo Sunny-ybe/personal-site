@@ -23,9 +23,10 @@ const mono = JetBrains_Mono({
 
 const title = "Sashikant Kumar | Computer Science & Mathematics @ ASU";
 const description =
-  "Sashikant Kumar builds AI products, developer tools, and automation systems. Computer Science & Mathematics at Arizona State University, open to Summer 2027 software engineering and AI internships.";
+  "Sashikant Kumar builds AI products, developer tools, and automation systems. Computer Science & Mathematics at Arizona State University, open to Spring and Summer 2027 software engineering and AI internships.";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.sashikantkumar.com"),
   title,
   description,
   authors: [{ name: "Sashikant Kumar" }],

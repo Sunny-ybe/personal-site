@@ -24,7 +24,7 @@ export const person = {
   headline: "Computer Science & Mathematics @ ASU",
   description:
     "I build AI products, developer tools, and automation systems, from browser extensions to apps used by real people.",
-  availability: "Open to Summer 2027 Software Engineering & AI internships",
+  availability: "Open to Spring & Summer 2027 Software Engineering & AI internships",
   location: "Tempe, Arizona",
   /** Small proof line under the description. */
   proof: [
@@ -288,6 +288,8 @@ export type MoreProject = {
   /** A YouTube video, with a short label shown above it that says what
    *  the video is (e.g. a concept demo, not a shipped product). */
   video?: { youtubeId: string; label: string };
+  /** A self-contained HTML animation under /public, played in a 16:9 frame. */
+  film?: { src: string; label: string };
   /** Spans the full row, with media beside the text. */
   wide?: boolean;
   links?: Link[];
@@ -320,8 +322,10 @@ export const moreProjects: MoreProject[] = [
     name: "Portfolio Bot",
     status: "In Progress",
     description:
-      "Ask questions about someone's work and get answers grounded in their real projects, with citations.",
-    stack: ["RAG"],
+      "A desktop app that turns a folder of your files into a portfolio site you change by chatting. It has three parts: the site builder; a bot on your site that answers visitors' questions about your work, grounded in your real projects with citations; and an opt-in MCP server, so recruiters and others can discover you and explore your work from their own AI tools. Every claim it shares carries a verification tier (verifiable, vouched for by someone, self-claimed, or no evidence), so recruiters can decide how much to trust it before hiring.",
+    stack: ["RAG", "MCP"],
+    film: { src: "/videos/portfolio-bot-film-v2.html", label: "Concept film · not a shipped product" },
+    wide: true,
     published: true,
   },
   {

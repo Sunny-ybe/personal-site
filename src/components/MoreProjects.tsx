@@ -1,4 +1,5 @@
 import { Carousel } from "@/components/Carousel";
+import { FilmEmbed } from "@/components/FilmEmbed";
 import { StatusBadge } from "@/components/StatusBadge";
 import { YouTubeEmbed } from "@/components/YouTubeEmbed";
 import { MoreProject } from "@/content/site-data";
@@ -62,7 +63,7 @@ export function MoreProjects({ projects }: { projects: MoreProject[] }) {
 }
 
 function hasMedia(p: MoreProject) {
-  return !!p.video || (!!p.images && p.images.length > 0);
+  return !!p.video || !!p.film || (!!p.images && p.images.length > 0);
 }
 
 function Media({ project: p }: { project: MoreProject }) {
@@ -72,6 +73,13 @@ function Media({ project: p }: { project: MoreProject }) {
         <div className="mb-4">
           <p className="eyebrow mb-2">{p.video.label}</p>
           <YouTubeEmbed id={p.video.youtubeId} title={`${p.name}: ${p.video.label}`} />
+        </div>
+      )}
+
+      {p.film && (
+        <div className="mb-4">
+          <p className="eyebrow mb-2">{p.film.label}</p>
+          <FilmEmbed src={p.film.src} title={`${p.name}: ${p.film.label}`} />
         </div>
       )}
 
