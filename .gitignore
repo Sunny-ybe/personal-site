@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# private screenshots (browser tabs, a teammate's post)
+/src/app/image.png
+/public/refrenceimage.png
