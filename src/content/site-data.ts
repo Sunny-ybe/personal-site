@@ -302,7 +302,7 @@ export const moreProjects: MoreProject[] = [
     tagline: "AI Toy Safety Rating Concept",
     status: "Prototype",
     description:
-      "An idea and proof of concept from Hacks for Humanity 2026, the social-good hackathon run by ASU Project Humanities. AI toys talk to children, but toy safety rules only check physical hazards, never what a toy says. The concept is a crash-test rating for them: hundreds of adversarial test conversations grade each toy before it reaches a shop, a safety layer rewrites unsafe answers before a child hears them, and parents scan a QR code on the box to see the live grade. Built with Team Hand in Hand; won 1st place overall and $2,500.",
+      "An idea and proof of concept from Hacks for Humanity 2026, the social-good hackathon run by ASU Project Humanities. AI toys talk to children, but toy safety rules only check physical hazards, never what a toy says. The concept is a crash-test rating for them: hundreds of adversarial test conversations grade each toy before it reaches a shop, a safety layer rewrites unsafe answers before a child hears them, and parents scan a QR code on the box to see the live grade. Built with Team Hand in Hand, where I co-developed the concept, built the demo video and parts of the site, and delivered the pitch. Won 1st place overall and $2,500.",
     stack: ["AI Safety", "ElevenLabs", "LLM Judge", "Cloudflare Pages", "Product Design"],
     video: { youtubeId: "u5Y2875ua2A", label: "Hackathon proof of concept · Hacks for Humanity 2026" },
     wide: true,
