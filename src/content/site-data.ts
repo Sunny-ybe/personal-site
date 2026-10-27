@@ -311,6 +311,21 @@ export const moreProjects: MoreProject[] = [
     published: true,
   },
   {
+    name: "Cramberry",
+    tagline: "Discord Study Quiz Bot",
+    status: "Prototype",
+    description:
+      "A hackathon build from DevHacks 2026 (Track 3, Group Chat Assistant). Cramberry is a Discord bot for study groups: when someone says \"im cooked\", it starts a 2-minute quiz the whole group plays together, and each person's Cubbie, their personal AI assistant, privately texts them what they got wrong. Built with Team Wildberry; won 2nd place in Track 3.",
+    stack: ["Python", "discord.py", "FastAPI", "Cubbie Skill", "LLM"],
+    video: { youtubeId: "d9Y_zhhDnA4", label: "Hackathon demo · DevHacks 2026" },
+    wide: true,
+    links: [
+      { label: "Website", href: "https://cramberry-site.vercel.app/" },
+      { label: "Source", href: "https://github.com/MalaikaKamranKhan/Track3" },
+    ],
+    published: true,
+  },
+  {
     name: "Ember",
     tagline: "Grief Companion Concept",
     status: "Prototype",

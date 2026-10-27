@@ -41,8 +41,9 @@ export function MoreProjects({ projects }: { projects: MoreProject[] }) {
                       {s}
                     </span>
                   ))}
-                  {p.links?.map((l) => (
-                    <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" className="btn ml-auto">
+                  {/* Only the first link gets ml-auto, so the buttons sit together on the right. */}
+                  {p.links?.map((l, i) => (
+                    <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" className={`btn ${i === 0 ? "ml-auto" : ""}`}>
                       {l.label} ↗
                     </a>
                   ))}
