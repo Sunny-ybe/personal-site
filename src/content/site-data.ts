@@ -30,6 +30,7 @@ export const person = {
   proof: [
     "1st place overall, ASU Hacks for Humanity 2026",
     "1st place, ASU Principled Innovation Academy",
+    "2nd place, ASU DevHacks 2026 (DevLabs)",
     "2 production workflow systems at ASU",
     "Shipped to 15 users across the US and India",
   ],
@@ -374,7 +375,7 @@ export const education = {
   gpa: "GPA 3.90/4.00",
   honors: ["Dean's List every semester", "New American University Scholar, Provost Distinction Award"],
   activities: [
-    { label: "Hackathons", items: ["HackAZona", "ASA DataFest (solo)"] },
+    { label: "Hackathons", items: ["Hacks for Humanity 2026 (1st place overall)", "DevHacks 2026 (2nd place)"] },
     { label: "Clubs", items: ["SODA", "DevLabs", "Claude Builder's Club"] },
   ],
 };
