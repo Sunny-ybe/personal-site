@@ -161,7 +161,10 @@ export const featuredProjects: FeaturedProject[] = [
     stack: ["JavaScript", "Python", "Chrome Extensions MV3"],
     images: ["/screenshots/focuslock-static.webp", "/screenshots/focuslock-running.webp"],
     mediaAspect: "3 / 4",
-    links: [{ label: "Demo video", href: "https://www.loom.com/share/7e273f907d154a8981d91e6de48e0de2" }],
+    links: [
+      { label: "Demo video", href: "https://www.loom.com/share/7e273f907d154a8981d91e6de48e0de2" },
+      { label: "Source", href: "https://github.com/Sunny-ybe/focus-lock" },
+    ],
     details: {
       built: "A Chrome extension (Manifest V3) that runs focus sessions and blocks distracting sites while one is active.",
       architecture: [
@@ -170,6 +173,43 @@ export const featuredProjects: FeaturedProject[] = [
         { part: "Apple Focus", detail: "macOS Shortcuts integration turns on Apple Focus across devices." },
       ],
       outcome: "In daily personal use.",
+    },
+    published: true,
+  },
+  {
+    name: "Backtrack",
+    tagline: "The YouTube Features That Were Missing",
+    category: "Browser Extensions",
+    status: "Built",
+    statusNote: "Chrome Web Store launch coming soon",
+    summary:
+      "A Chrome extension that adds what YouTube never shipped: loop any video, play your own ordered playlist of links, set a sleep timer, and skip ads.",
+    stat: "50+ end-to-end tests run on every push",
+    highlights: [
+      "Your own playlist from any YouTube link. It plays in order without page reloads, keeps going in a background tab, and stops when the list ends instead of autoplaying something random.",
+      "Ad blocking at two layers: network rules block ad requests, and any video ad that still plays is muted, sped up, and skipped.",
+      "Regression suite of Playwright tests against an offline fake YouTube, plus a live smoke test on youtube.com.",
+    ],
+    stack: ["JavaScript", "Chrome Extensions MV3", "Playwright", "GitHub Actions"],
+    images: ["/screenshots/backtrack-popup.webp", "/screenshots/backtrack-playlist.webp"],
+    mediaAspect: "3 / 4",
+    links: [{ label: "Source", href: "https://github.com/Sunny-ybe/perfect-youtube" }],
+    details: {
+      problem:
+        "YouTube on the web has no loop button, no way to play your own ordered list of links, no sleep timer, and a lot of ads.",
+      built:
+        "A Manifest V3 Chrome extension with a popup for loop, sleep timer, playlist, and ad-block controls. The Alt+L shortcut toggles loop on any YouTube tab.",
+      architecture: [
+        { part: "Popup", detail: "Controls for loop, the sleep timer, and a drag-to-reorder playlist with titles and thumbnails." },
+        { part: "Player control", detail: "A content script plus a page-world script drive YouTube's player, switching songs without reloading the page." },
+        { part: "Ad blocking", detail: "declarativeNetRequest rules block ad requests; leftover video ads are muted, sped up, and skipped." },
+        { part: "Testing", detail: "Unit tests plus Playwright end-to-end tests against a fake YouTube page, run in CI on every push." },
+      ],
+      challenges: [
+        "Only the tab that started the playlist may advance it, so other YouTube tabs are left alone.",
+        "YouTube changes its page often, so the offline fake-YouTube test suite catches regressions before they ship.",
+      ],
+      outcome: "All features working. Chrome Web Store listing coming soon.",
     },
     published: true,
   },
