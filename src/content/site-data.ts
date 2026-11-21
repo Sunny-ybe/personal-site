@@ -372,7 +372,7 @@ export const moreProjects: MoreProject[] = [
     tagline: "Grief Companion Concept",
     status: "Prototype",
     description:
-      "A grief-companion concept I scoped and led a team to design and prototype. Won 1st place at ASU's Principled Innovation Academy, Spring 2026.",
+      "A grief-companion concept I scoped and led a team to design and prototype. Won 1st place and $3,000 at ASU's Principled Innovation Academy, Spring 2026.",
     links: [{ label: "Interactive Concept Demo", href: "https://ember-smartwatch-mobile.netlify.app/" }],
     published: true,
   },
@@ -381,7 +381,7 @@ export const moreProjects: MoreProject[] = [
     tagline: "Civic Engagement App",
     status: "Prototype",
     description:
-      "You see a problem and scan it. Chorus tells you which authority is responsible. If someone already spotted it, you join their Circle; Chorus routes the Circle's report to that office, and if it stalls, drafts a three-minute comment for the next public meeting. Built for civic engagement after the election. The idea was mine; I also helped build the web prototype, the app, and the demo video, and led the four-minute Q&A with the judges. Won 1st place at ASU's Principled Innovation Academy, Fall 2026.",
+      "You see a problem and scan it. Chorus tells you which authority is responsible. If someone already spotted it, you join their Circle; Chorus routes the Circle's report to that office, and if it stalls, drafts a three-minute comment for the next public meeting. Built for civic engagement after the election. The idea was mine; I also helped build the web prototype, the app, and the demo video, and led the four-minute Q&A with the judges. Won 1st place and $3,000 at ASU's Principled Innovation Academy, Fall 2026.",
     stack: ["React Native", "Expo", "Supabase"],
     video: { youtubeId: "YFe5xUbHLp8", label: "Demo video" },
     wide: true,
