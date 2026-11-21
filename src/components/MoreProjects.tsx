@@ -19,7 +19,12 @@ export function MoreProjects({ projects }: { projects: MoreProject[] }) {
             <div className="min-w-0 flex flex-col">
               <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mb-1">
                 <h3 className="font-display text-lg leading-snug">{p.name}</h3>
-                {p.status && <StatusBadge status={p.status} />}
+                {(p.award || p.status) && (
+                  <div className="flex flex-wrap gap-2">
+                    {p.award && <span className="status">{p.award}</span>}
+                    {p.status && <StatusBadge status={p.status} />}
+                  </div>
+                )}
               </div>
 
               {p.tagline && (

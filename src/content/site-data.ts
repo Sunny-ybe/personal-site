@@ -331,6 +331,8 @@ export type MoreProject = {
   /** A YouTube video, with a short label shown above it that says what
    *  the video is (e.g. a concept demo, not a shipped product). */
   video?: { youtubeId: string; label: string };
+  /** A short win shown beside the name, e.g. "1st place · $3,000". */
+  award?: string;
   /** A self-contained HTML animation under /public, played in a 16:9 frame. */
   film?: { src: string; label: string };
   /** Spans the full row, with media beside the text. */
@@ -344,6 +346,7 @@ export const moreProjects: MoreProject[] = [
     name: "Crash Test Buddy",
     tagline: "AI Toy Safety Rating Concept",
     status: "Prototype",
+    award: "1st place · $2,500",
     description:
       "An idea and proof of concept from Hacks for Humanity 2026, the social-good hackathon run by ASU Project Humanities. AI toys talk to children, but toy safety rules only check physical hazards, never what a toy says. The concept is a crash-test rating for them: hundreds of adversarial test conversations grade each toy before it reaches a shop, a safety layer rewrites unsafe answers before a child hears them, and parents scan a QR code on the box to see the live grade. Built with Team Hand in Hand, where I co-developed the concept, built the demo video and parts of the site, and delivered the pitch. Won 1st place overall and $2,500.",
     stack: ["AI Safety", "ElevenLabs", "LLM Judge", "Cloudflare Pages", "Product Design"],
@@ -356,6 +359,7 @@ export const moreProjects: MoreProject[] = [
     name: "Cramberry",
     tagline: "Discord Study Quiz Bot",
     status: "Prototype",
+    award: "2nd place",
     description:
       "A hackathon build from DevHacks 2026 (Track 3, Group Chat Assistant). Cramberry is a Discord bot for study groups: when someone says \"im cooked\", it starts a 2-minute quiz the whole group plays together, and each person's Cubbie, their personal AI assistant, privately texts them what they got wrong. Built with Team Wildberry; won 2nd place in Track 3.",
     stack: ["Python", "discord.py", "FastAPI", "Cubbie Skill", "LLM"],
@@ -371,6 +375,7 @@ export const moreProjects: MoreProject[] = [
     name: "Ember",
     tagline: "Grief Companion Concept",
     status: "Prototype",
+    award: "1st place · $3,000",
     description:
       "A grief-companion concept I scoped and led a team to design and prototype. Won 1st place and $3,000 at ASU's Principled Innovation Academy, Spring 2026.",
     links: [{ label: "Interactive Concept Demo", href: "https://ember-smartwatch-mobile.netlify.app/" }],
@@ -380,6 +385,7 @@ export const moreProjects: MoreProject[] = [
     name: "Chorus",
     tagline: "Civic Engagement App",
     status: "Prototype",
+    award: "1st place · $3,000",
     description:
       "You see a problem and scan it. Chorus tells you which authority is responsible. If someone already spotted it, you join their Circle; Chorus routes the Circle's report to that office, and if it stalls, drafts a three-minute comment for the next public meeting. Built for civic engagement after the election. The idea was mine; I also helped build the web prototype, the app, and the demo video, and led the four-minute Q&A with the judges. Won 1st place and $3,000 at ASU's Principled Innovation Academy, Fall 2026.",
     stack: ["React Native", "Expo", "Supabase"],
@@ -391,8 +397,9 @@ export const moreProjects: MoreProject[] = [
   {
     name: "Portfolio Bot",
     status: "In Progress",
+    award: "3rd place · $1,000",
     description:
-      "A desktop app that turns a folder of your files into a portfolio site you change by chatting. It has three parts: the site builder; a bot on your site that answers visitors' questions about your work, grounded in your real projects with citations; and an opt-in MCP server, so recruiters and others can discover you and explore your work from their own AI tools. Every claim it shares carries a verification tier (verifiable, vouched for by someone, self-claimed, or no evidence), so recruiters can decide how much to trust it before hiring.",
+      "A desktop app that turns a folder of your files into a portfolio site you change by chatting. It has three parts: the site builder; a bot on your site that answers visitors' questions about your work, grounded in your real projects with citations; and an opt-in MCP server, so recruiters and others can discover you and explore your work from their own AI tools. Every claim it shares carries a verification tier (verifiable, vouched for by someone, self-claimed, or no evidence), so recruiters can decide how much to trust it before hiring. Won 3rd place and $1,000 at ASU's Global Innovation Night Pitch Competition, Fall 2026.",
     stack: ["RAG", "MCP"],
     film: { src: "/videos/portfolio-bot-film-v2.html", label: "Concept film · not a shipped product" },
     wide: true,
