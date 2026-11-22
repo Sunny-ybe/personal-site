@@ -406,6 +406,17 @@ export const moreProjects: MoreProject[] = [
     published: true,
   },
   {
+    name: "Oracle",
+    tagline: "Real-World Answers for AI Agents",
+    status: "Prototype",
+    description:
+      "AI agents can read the internet but can't see the real world. Oracle lets an agent like Claude ask people nearby a live question about a place, and their phones help measure the answer: 10 seconds of loudness, a Wi-Fi speed test, and the barometer to tell which floor they're on. Think of a student with a disability checking whether a building is accessible before going, or someone at home during finals checking whether the library's third floor is quiet. Built with a team of three at SunHacks 2026; I built the backend and worked on the iPhone app and the MCP server.",
+    stack: ["Node.js", "MCP", "MongoDB", "Gemini", "SwiftUI", "Solana (devnet)"],
+    video: { youtubeId: "tX2waHO_kbY", label: "Hackathon demo · SunHacks 2026" },
+    wide: true,
+    published: true,
+  },
+  {
     name: "Cleanthon",
     // Needs scale before publishing: cities, participants, whatever
     // proves it was real.
