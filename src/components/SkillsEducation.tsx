@@ -37,6 +37,12 @@ export function SkillsEducation() {
         <p className="text-[0.94rem]" style={{ color: "var(--paper-dim)" }}>
           {education.activities.map((a) => `${a.label}: ${a.items.join(", ")}`).join(" · ")}
         </p>
+
+        {education.transcriptHref && (
+          <a href={education.transcriptHref} target="_blank" rel="noopener noreferrer" className="btn mt-5">
+            Unofficial Transcript ↗
+          </a>
+        )}
       </article>
     </div>
   );

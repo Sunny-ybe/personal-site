@@ -460,6 +460,8 @@ export const education = {
   degree: "B.S. Computer Science & B.S. Mathematics",
   expected: "Expected May 2028",
   gpa: "GPA 3.90/4.00",
+  /** Path under /public, linked beside the GPA. */
+  transcriptHref: "/research/Transcript.pdf",
   honors: ["Dean's List every semester", "New American University Scholar, Provost Distinction Award"],
   activities: [
     { label: "Hackathons", items: ["Hacks for Humanity 2026 (1st place overall)", "DevHacks 2026 (2nd place)"] },
